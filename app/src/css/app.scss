@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap');
+@import 'reset';
+@import 'variable';
+@import "font";
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    color: $body-text-color;
+    background: $primary-color ;
+    font-size: 14px;
+}
+
+a{
+    color: rgba(27,101,246,1);
+    text-decoration: none;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.app-layout{
+    max-width: 1000px;
+    margin: 0 auto;
+    // padding: 100px 0 0 0;
+    @media(min-width: $screen-md){
+        padding: 100px 50px 50px 50px;
+    }
+}
+
+.app-container{
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0 0 0;
+  
+    .app-header{
+
+        padding-bottom: 30px;
+        text-align: center;
+        
+        .app-site-info{
+            color: white;
+            h1{
+                margin: 0;
+                padding: 0;
+                font-size: 40px;
+                font-weight: 800;
+            }
+            .site-title{
+                margin: 20px 0 0 0;
+                padding: 0;
+                font-size: 50px;
+                font-weight: 300;
+                color: rgba($color: white, $alpha: 0.9);
+                @media (max-width: $screen-sm){
+                    display: none;
+                }
+            }
+            .site-slogan{
+                margin-top: 5px;
+                padding: 0;
+                font-size: 30px;
+                font-weight: 300;
+                color: rgba($color: white, $alpha: 0.8);
+                @media (max-width: $screen-sm){
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // .app-content{
+        
+    // }
+
+    @media (min-width: $screen-md){
+        .app-header{
+            float: left;
+            padding-top: 100px;
+            text-align: left;
+        }
+    
+        .app-content{
+            float: right;
+        }
+
+    } 
+}
+.app-card{
+    overflow: hidden;
+    position: relative;
+    background: white;
+    border-radius: 5px;
+    @media(min-width: $screen-md) {
+        width: 350px;
+    }
+    .app-card-header{
+        background: rgba(243,247,255,1);
+        .app-card-header-inner{
+            padding: 20px;
+        };
+     
+    }
+    .app-card-content{
+        .app-card-content-inner{
+            padding: 20px;
+        }
+    };
+
+    &.app-card-uploading, &.app-card-upload-sent{
+        .app-card-content{
+            .app-card-content-inner{
+                padding: 40px;
+            }
+        };
+    }
+
+    @media (max-width: $screen-md){
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    @media (max-width: $screen-sm){
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+.files-upload{
+    width: 100%;
+    display: block;
+    text-align: center;
+    label{
+        display: block;
+        width: 100%;
+        input{
+            position: fixed;
+            top: -999px;
+        }
+    }
+    .files-upload-description{
+        font-size: 13px;
+        display: block;
+    }
+    .files-upload-icon{
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 60px;
+        height: 30px;
+        border: 1px dashed $body-text-color;
+        position: relative;
+        i{
+            position: absolute;
+            left: 10px;
+            top: -10px;
+            background: #f3f7ff;
+            font-size: 28px;
+        }
+    }
+    &.error{
+        .files-upload-icon{
+            border: 1px dashed $danger-color; 
+        }
+    }
+}
+
+
+.app-form-item{
+    margin: 0 0 15px 0;
+    label{
+        text-transform: uppercase;
+        display: block;
+        font-weight: 400;
+        margin: 0 0 8px 0;
+    }
+    input[type = 'text'],textarea{
+        width: 100%;
+        border: 1px solid rgba(224,224,244,1);
+        outline: 0 none;
+        padding: 8px;
+        border-radius: 5px;
+        &:focus :active{
+            outline: 0 none;
+        }
+    }
+    textarea{
+        min-height: 50px;
+    }
+    &.error{
+        input::placeholder {
+            color: $danger-color;
+        };
+    }
+}
+
+.app-form-action{
+    .app-button{
+        width: 100%;
+        text-align: center;
+        display: block;
+        font-weight: 800;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+        background: white;
+        border-radius: 5px;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        &.primary{
+            background: $primary-color;
+            color: white;
+        }
+    }
+}
+
+.app-files-selected{
+    background: white;
+    position: relative;
+    margin: -20px -20px 20px -20px;
+    padding: 20px;
+    max-height: 150px;
+    position: relative;
+    overflow-y: auto;
+
+    .app-files-selected-item{
+        display: flex;
+        border-bottom: 1px solid rgba(0,0,0,0.09) ;
+        padding: 10px 0;
+        .filename{
+            flex-grow: 1;
+        }
+        // .file-action{
+    
+        // }
+    }
+    
+    .app-files-remove{
+        border: 0 none;
+        padding: 3px;
+        font-size: 14px;
+        font-weight: 300;
+        background: none;
+    }
+}
+
+.app-home-uploading-icon{
+    display: block;
+    text-align: center ;
+    i{
+        font-size: 60px;
+        display: inline-block;
+        border: 1px solid $body-text-color;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        line-height: 100px;
+    }
+    h2{
+        margin: 20px 0 0 0;
+        font-size: 17px;
+    }
+}
+
+.app-home-upload-sent-icon{
+    display: block;
+    text-align: center ;
+    i{
+        font-size: 50px;
+        display: inline-block;
+        border: 1px solid $body-text-color;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        line-height: 100px;
+    }
+}
+
+.app-upload-files-total{
+    margin-top: 20px;
+}
+
+.app-upload-stats{
+    display: flex;
+    .app-upload-stats-left{
+        flex-grow: 1;
+    }
+    // .app-upload-stats-right{
+
+    // }
+}
+
+.app-progress{
+    margin: 10px 0 10px 0;
+    background: rgba(241, 248, 254, 1);
+    border: 1px solid rgba(178, 216, 246, 1);
+    height: 11px;
+    line-height: 11px;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    .app-progress-bar{
+        display: block;
+        position:absolute;
+        left: 0;
+        top: 0;
+        height: 10px;
+        line-height: 11px;
+        // background: $primary-color;
+        background: rgba(27,101,246,1);
+    }
+}
+
+.app-upload-cancel-button{
+    margin-top: 50px;
+}
+
+.app-upload-sent-message{
+    margin-top: 40px;
+    h2{
+        font-size: 24px;
+        font-weight: 400;
+        color: rgb(117, 123, 139);
+        padding: 0;
+        margin: 10px 0;
+    }
+    p{
+        line-height: 1em;
+    }
+
+}
+
+.app-upload-sent-action{
+    margin: 20px 0;
+    button{
+        margin: 10px 0;
+    }
+}
+
+.app-page-download{
+    .app-card{
+        margin: 0px auto;
+        @media(min-width: $screen-sm){
+            width: 400px;
+        }
+
+        @media(max-width: 759px){
+            margin: 0 20px;
+        }
+    }   
+}
+
+.app-top-header{
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    h1{
+        margin: 0;
+        padding: 0;
+        font-size: 35px;
+        font-weight: 800;
+        cursor: pointer;
+    }
+}
+
+.app-download-icon{
+    text-align: center;
+    i{
+        font-size: 60px;
+        color: $body-text-color;
+        display: inline-block;
+        border: 1px solid $body-text-color;
+        width: 100px;     
+        height: 100px;
+        line-height: 100px;
+        border-radius: 50%;   
+    }
+}
+
+.app-download-message{
+    margin-top: 30px;
+    h2{
+        font-size: 20px;
+        margin: 15px 0;
+        color: rgb(117, 123, 139);
+    }
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li{
+            padding: 0 0 0 10px;
+            margin: 0 10px 0 0;
+            display: inline-block;
+            position: relative;
+            &:before {
+                position: absolute;
+                top: 5px;
+                left: 0;
+                display: block;
+                content: ' ';
+                width: 3px;
+                height: 3px;
+                background: $body-text-color;
+                border-radius: 50%;
+            }
+            &:first-child{
+                padding: 0;
+                &:before{
+                    display: none;
+                }
+
+            }
+        }
+    }
+}
+
+.app-download-file-list{
+    margin: 30px 0;
+    .app-download-file-list-item{
+        border-bottom: 1px solid rgba(227, 234, 248, 1);
+        padding: 10px 5px;
+        display: flex;
+        .filename{
+            flex-grow: 1;
+        }
+        .download-action{
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+    &:first-child{
+        border-top: 1px solid rgba(227, 234, 248, 1);
+    }
+}
+
+.app-download-action{
+    button{
+        margin: 10px 0;
+    }
+}
+
+
+.text-uppercase{
+    text-transform: uppercase;
+}
+
+.app-text-center{
+    text-align: center;
+}
+
+.error{
+    color: $danger-color;
+}
+
+@media(max-width: $screen-md){
+    .app-page-download{
+        margin-top: 100px;
+    }
+}

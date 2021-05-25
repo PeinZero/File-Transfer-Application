@@ -1,0 +1,541 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap");
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: "untitled-font-1";
+  src: url("fonts/untitled-font-1.eot");
+  src: url("fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"), url("fonts/untitled-font-1.woff") format("woff"), url("fonts/untitled-font-1.ttf") format("truetype"), url("fonts/untitled-font-1.svg#untitled-font-1") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon]:before {
+  font-family: "untitled-font-1" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^=icon-]:before,
+[class*=" icon-"]:before {
+  font-family: "untitled-font-1" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-paper-plane:before {
+  content: "a";
+}
+
+.icon-mouse-pointer:before {
+  content: "b";
+}
+
+.icon-upload:before {
+  content: "c";
+}
+
+.icon-upload-cloud:before {
+  content: "d";
+}
+
+.icon-picture-o:before {
+  content: "e";
+}
+
+.icon-download:before {
+  content: "f";
+}
+
+.icon-paperplane:before {
+  content: "g";
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #626770;
+  background: #2a2a2a;
+  font-size: 14px;
+}
+
+a {
+  color: #1b65f6;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-layout {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .app-layout {
+    padding: 100px 50px 50px 50px;
+  }
+}
+
+.app-container {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0 0 0;
+}
+.app-container .app-header {
+  padding-bottom: 30px;
+  text-align: center;
+}
+.app-container .app-header .app-site-info {
+  color: white;
+}
+.app-container .app-header .app-site-info h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  font-weight: 800;
+}
+.app-container .app-header .app-site-info .site-title {
+  margin: 20px 0 0 0;
+  padding: 0;
+  font-size: 50px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+}
+@media (max-width: 760px) {
+  .app-container .app-header .app-site-info .site-title {
+    display: none;
+  }
+}
+.app-container .app-header .app-site-info .site-slogan {
+  margin-top: 5px;
+  padding: 0;
+  font-size: 30px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 760px) {
+  .app-container .app-header .app-site-info .site-slogan {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .app-container .app-header {
+    float: left;
+    padding-top: 100px;
+    text-align: left;
+  }
+  .app-container .app-content {
+    float: right;
+  }
+}
+
+.app-card {
+  overflow: hidden;
+  position: relative;
+  background: white;
+  border-radius: 5px;
+}
+@media (min-width: 992px) {
+  .app-card {
+    width: 350px;
+  }
+}
+.app-card .app-card-header {
+  background: #f3f7ff;
+}
+.app-card .app-card-header .app-card-header-inner {
+  padding: 20px;
+}
+.app-card .app-card-content .app-card-content-inner {
+  padding: 20px;
+}
+.app-card.app-card-uploading .app-card-content .app-card-content-inner, .app-card.app-card-upload-sent .app-card-content .app-card-content-inner {
+  padding: 40px;
+}
+@media (max-width: 992px) {
+  .app-card {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .app-card {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.files-upload {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.files-upload label {
+  display: block;
+  width: 100%;
+}
+.files-upload label input {
+  position: fixed;
+  top: -999px;
+}
+.files-upload .files-upload-description {
+  font-size: 13px;
+  display: block;
+}
+.files-upload .files-upload-icon {
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 60px;
+  height: 30px;
+  border: 1px dashed #626770;
+  position: relative;
+}
+.files-upload .files-upload-icon i {
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  background: #f3f7ff;
+  font-size: 28px;
+}
+.files-upload.error .files-upload-icon {
+  border: 1px dashed #d0152e;
+}
+
+.app-form-item {
+  margin: 0 0 15px 0;
+}
+.app-form-item label {
+  text-transform: uppercase;
+  display: block;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+}
+.app-form-item input[type=text], .app-form-item textarea {
+  width: 100%;
+  border: 1px solid #e0e0f4;
+  outline: 0 none;
+  padding: 8px;
+  border-radius: 5px;
+}
+.app-form-item input[type=text]:focus :active, .app-form-item textarea:focus :active {
+  outline: 0 none;
+}
+.app-form-item textarea {
+  min-height: 50px;
+}
+.app-form-item.error input::placeholder {
+  color: #d0152e;
+}
+
+.app-form-action .app-button {
+  width: 100%;
+  text-align: center;
+  display: block;
+  font-weight: 800;
+  color: #2a2a2a;
+  border: 1px solid #2a2a2a;
+  background: white;
+  border-radius: 5px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+}
+.app-form-action .app-button.primary {
+  background: #2a2a2a;
+  color: white;
+}
+
+.app-files-selected {
+  background: white;
+  position: relative;
+  margin: -20px -20px 20px -20px;
+  padding: 20px;
+  max-height: 150px;
+  position: relative;
+  overflow-y: auto;
+}
+.app-files-selected .app-files-selected-item {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  padding: 10px 0;
+}
+.app-files-selected .app-files-selected-item .filename {
+  flex-grow: 1;
+}
+.app-files-selected .app-files-remove {
+  border: 0 none;
+  padding: 3px;
+  font-size: 14px;
+  font-weight: 300;
+  background: none;
+}
+
+.app-home-uploading-icon {
+  display: block;
+  text-align: center;
+}
+.app-home-uploading-icon i {
+  font-size: 60px;
+  display: inline-block;
+  border: 1px solid #626770;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  line-height: 100px;
+}
+.app-home-uploading-icon h2 {
+  margin: 20px 0 0 0;
+  font-size: 17px;
+}
+
+.app-home-upload-sent-icon {
+  display: block;
+  text-align: center;
+}
+.app-home-upload-sent-icon i {
+  font-size: 50px;
+  display: inline-block;
+  border: 1px solid #626770;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  line-height: 100px;
+}
+
+.app-upload-files-total {
+  margin-top: 20px;
+}
+
+.app-upload-stats {
+  display: flex;
+}
+.app-upload-stats .app-upload-stats-left {
+  flex-grow: 1;
+}
+
+.app-progress {
+  margin: 10px 0 10px 0;
+  background: #f1f8fe;
+  border: 1px solid #b2d8f6;
+  height: 11px;
+  line-height: 11px;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.app-progress .app-progress-bar {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 10px;
+  line-height: 11px;
+  background: #1b65f6;
+}
+
+.app-upload-cancel-button {
+  margin-top: 50px;
+}
+
+.app-upload-sent-message {
+  margin-top: 40px;
+}
+.app-upload-sent-message h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #757b8b;
+  padding: 0;
+  margin: 10px 0;
+}
+.app-upload-sent-message p {
+  line-height: 1em;
+}
+
+.app-upload-sent-action {
+  margin: 20px 0;
+}
+.app-upload-sent-action button {
+  margin: 10px 0;
+}
+
+.app-page-download .app-card {
+  margin: 0px auto;
+}
+@media (min-width: 760px) {
+  .app-page-download .app-card {
+    width: 400px;
+  }
+}
+@media (max-width: 759px) {
+  .app-page-download .app-card {
+    margin: 0 20px;
+  }
+}
+
+.app-top-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+.app-top-header h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 35px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.app-download-icon {
+  text-align: center;
+}
+.app-download-icon i {
+  font-size: 60px;
+  color: #626770;
+  display: inline-block;
+  border: 1px solid #626770;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  border-radius: 50%;
+}
+
+.app-download-message {
+  margin-top: 30px;
+}
+.app-download-message h2 {
+  font-size: 20px;
+  margin: 15px 0;
+  color: #757b8b;
+}
+.app-download-message ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.app-download-message ul li {
+  padding: 0 0 0 10px;
+  margin: 0 10px 0 0;
+  display: inline-block;
+  position: relative;
+}
+.app-download-message ul li:before {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  display: block;
+  content: " ";
+  width: 3px;
+  height: 3px;
+  background: #626770;
+  border-radius: 50%;
+}
+.app-download-message ul li:first-child {
+  padding: 0;
+}
+.app-download-message ul li:first-child:before {
+  display: none;
+}
+
+.app-download-file-list {
+  margin: 30px 0;
+}
+.app-download-file-list .app-download-file-list-item {
+  border-bottom: 1px solid #e3eaf8;
+  padding: 10px 5px;
+  display: flex;
+}
+.app-download-file-list .app-download-file-list-item .filename {
+  flex-grow: 1;
+}
+.app-download-file-list .app-download-file-list-item .download-action a {
+  text-decoration: none;
+}
+.app-download-file-list:first-child {
+  border-top: 1px solid #e3eaf8;
+}
+
+.app-download-action button {
+  margin: 10px 0;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.app-text-center {
+  text-align: center;
+}
+
+.error {
+  color: #d0152e;
+}
+
+@media (max-width: 992px) {
+  .app-page-download {
+    margin-top: 100px;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */
