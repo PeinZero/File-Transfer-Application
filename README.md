@@ -1,4 +1,4 @@
-# File-Transfer-Application
+# Rocket Share
 
 This project was created using MERN.
 
